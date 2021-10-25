@@ -1,6 +1,9 @@
 #include <iostream>
+#include "nlohmann/json.hpp"
 
 int main()
 {
-    std::cout << "test\n" << std::endl;
+    nlohmann::json dict;
+    dict["test"] = 10;
+    std::cout << dict["test"] << std::endl;
 }
