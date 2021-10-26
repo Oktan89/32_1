@@ -17,12 +17,12 @@ int main()
 
     if(it != film.end())
     {
-        //std::cout<< it.key() << std::endl;
-        auto it2 = it->find("actors");
+        //std::cout<< it.value() << std::endl;
+        auto it2 = it->find("production_year");
 
         if(it2 != it->end())
         {
-            std::cout << it2.value() << std::endl;
+            std::cout << *it2 << std::endl;
         }
     }
 }
