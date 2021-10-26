@@ -1,9 +1,28 @@
 #include <iostream>
+#include <string>
+#include <fstream>
 #include "nlohmann/json.hpp"
 
 int main()
 {
-    nlohmann::json dict;
-    dict["test"] = 10;
-    std::cout << dict["test"] << std::endl;
+    std::ifstream file("text.json");
+
+    nlohmann::json film; 
+    file >> film;
+    file.close();
+
+    std::string name = "the matrix";
+
+    auto it = film.find(name);
+
+    if(it != film.end())
+    {
+        //std::cout<< it.key() << std::endl;
+        auto it2 = it->find("actors");
+
+        if(it2 != it->end())
+        {
+            std::cout << it2.value() << std::endl;
+        }
+    }
 }
