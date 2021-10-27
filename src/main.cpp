@@ -11,18 +11,6 @@ int main()
     file >> film;
     file.close();
 
-    std::string name = "the matrix";
-
-    auto it = film.find(name);
-
-    if(it != film.end())
-    {
-        //std::cout<< it.value() << std::endl;
-        auto it2 = it->find("actors");
-
-        if(it2 != it->end())
-        {
-            std::cout << *it2 << std::endl;
-        }
-    }
+    for(auto it = film.begin(); it != film.end(); ++it)
+        std::cout << it.key() << " : " << it.value() << std::endl;
 }
